@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <h1>Sudarsan orders a car</h1>
+
+<h2>Getting input</h2>
+
+<form>
+    <input type ="checkbox" id="electric" name="electric_car" value="electric">
+    <label for="electric">electric </label>
+<br>
+<input type ="checkbox" id="ac" name="ac_car" value="ac">
+    <label for="ac">ac </label><br>
+    <input type ="checkbox" id="gps" name="gps_car" value="gps">
+    <label for="gps">gps </label><br>
+    <br>
+    <input type="button" onclick="orderCar()" value="Order a car">
+ 
+    
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+
+    let my_car= {};
+    
+    
+    function orderCar()
+    {
+        
+        my_car;
+        electric_car = document.getElementById("electric").checked
+        ac_car = document.getElementById("ac").checked
+        gps_car = document.getElementById("gps").checked
+    
+        out = document.getElementById("result")
+        out.innerHTML  = "The values of electric card and ac car and gps car are: " + electric_car + " " + ac_car +" "+ gps_car;    
+        
+    }
+    function updateCar(){
+        str1 = document.getElementById("name").value
+        str2 = document.getElementById("value").value
+        my_car= str1 + " "+ str2;
+        out = document.getElementById("output")
+        out.innerHTML  = " The values of updated car are: " + my_car;
+    
+    }
+    </script>
+
+</body>
+</html> 
