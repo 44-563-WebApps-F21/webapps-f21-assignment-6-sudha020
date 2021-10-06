@@ -17,24 +17,60 @@
 </form>
 <p id="result"> check here for result of computation </p>
 
-
+<form>
+    
+    <input type="radio" onclick="processRadio()" id= "plus" name="group">
+    <label for="radio1">+</label><br>   
+    <input type="radio" onclick="processRadio()" id="minus" name="group">
+    <label for="radio2">-</label><br>
+    <input type="radio" onclick="processRadio()" id="times" name="group">  
+    <label for="radio3">*</label><br>  
+    <input type="radio" onclick="processRadio()" id="divide" name="group">
+    <label for="radio4">/</label><br>   
+    
+</form>
+<p id="radioresult"> check here for result of radio buttons </p>
 
 <script> 
+function processRadio()
+{
+    baseValue = document.getElementById("base").value;
+    expValue = document.getElementById("exp").value;
+    radioout = document.getElementById("radioresult");
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    if(document.getElementById("plus").checked){
+        out = num(baseValue) + num(expValue) ;
     }
+    else if(document.getElementById("minus").checked){
+        out = baseValue - expValue ;
+    }
+    else if(document.getElementById("times").checked){
+        out = baseValue * expValue ;
+    }
+    else if(document.getElementById("divide").checked){
+        out = baseValue / expValue ;
+    }  
+  
+    radioout.innerHTML = "Result is : "+ out;
+}
+
+function powers()
+{
+    let outcome = " ";
+    baseValue = document.getElementById("base").value;
+    expValue = document.getElementById("exp").value;
+    output = document.getElementById("result");
+
+    for(let i=1;i<=expValue;i++)
+    {
+       outcome = outcome + Math.pow(baseValue,i) + " ";
+    }
+    output.innerHTML = "Powers of "+ baseValue + " are : "+ outcome + "  (exponent was "+expValue +")";
+
 }
 </script>
+
+
 
 </body>
 </html> 
