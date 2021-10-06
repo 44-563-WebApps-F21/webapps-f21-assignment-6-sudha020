@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Getting input</h2>
+<h1>Pass phraseby Sudarsan Reddy Gooli</h1>
+
+<form>
+    <label for="Let me in">Enter the secret phrase</label>
+    <input type ="password" id="Let me in" name="Let me in" min=10 max=50 step=2 value="Let me in"> <br>
+    
+
+    <label for="Guess">Enter a phrase </label>
+    <input type ="text" id="Guess" name="Guess" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+    var correct=0;
+    var wrong=0;
+    
+function processPhrase() {
+    secret=document.getElementById("Let me in").value
+    
+        
+    Guess=document.getElementById("Guess").value
+    if (secret==Guess){
+        correct++
+        alert("Access allowed")
+    }
+    else{
+        wrong++
+        alert("Access denied")
+    }
+    result=document.getElementById("result").innerHTML="Right : "+correct+" Wrong : "+wrong
+}
+</script>
+<div class="container">
+    <img src= "Giraffe.jpg" id="Giraffe" alt="Giraffe" height="200" width="200" onclick="newImage()">
+</div>
+
+<script> 
+
+var correct=0,wrong=0;
+
+function processPhrase (){
+
+    spValue = document.getElementById("secretphrase").value
+
+    phraseValue = document.getElementById("phrase").value
+
+    resultDiv = document.getElementById("result")
+
+    if(spValue==phraseValue){
+        alert("Access allowed");
+        correct=correct+1;
+    }else{
+        alert("Access denied");
+        wrong=wrong+1;
+
+    }
+
+    resultDiv.innerHTML="Correct count: "+correct+'<br>'+" Wrong count: "+wrong; 
+}
+
+    var usingImage=1;
+    function newImage(){
+
+        Image=document.getElementById("Giraffe")
+        switch(usingImage){
+            case 1 : Image.src = "owl.jpg"
+                     usingImage =usingImage +1;
+                     break;
+            case 2 : Image.src = "Giraffe.jpg"
+                     usingImage =usingImage +1;
+                     break; 
+            case 3 : Image.src = "ox.jpg"
+                     usingImage =usingImage +1;
+                     break; 
+            default:
+                    Image.src="Giraffe.jpg"
+                    usingImage = 0;
+
+                           
+        } 
+    }
+
+</script>
+
+</body>
+</html> 
