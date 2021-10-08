@@ -28,15 +28,15 @@
 <body>
 
 <h2>Getting input</h2>
-<h1>Pass phraseby Sudarsan Reddy Gooli</h1>
+<h1>Pass phrase by Sudarsan Reddy Gooli</h1>
 
 <form>
-    <label for="Let me in">Enter the secret phrase</label>
-    <input type ="password" id="Let me in" name="Let me in" min=10 max=50 step=2 value="Let me in"> <br>
+    <label for="s">Enter the secret phrase</label>
+    <input type ="password" id="s" name="s" min=10 max=50 step=2 value="Let me in"> <br>
     
 
-    <label for="Guess">Enter a phrase </label>
-    <input type ="text" id="Guess" name="Guess" autofocus> <br>
+    <label for="phrase">Enter a phrase </label>
+    <input type ="text" id="phrase" name="phrase" autofocus> <br>
 
     <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
@@ -44,34 +44,6 @@
 
 <p id="result">This text will be replaced </p>
 
-<script> 
-    var correct=0;
-    var wrong=0;
-    
-function processPhrase() {
-    secret=document.getElementById("Let me in").value
-    
-        
-    Guess=document.getElementById("Guess").value
-    if(wrong<3){
-    if (secret==Guess){
-        correct++
-        alert("Access allowed")
-    }
-    else{
-        wrong++
-        alert("Access denied")
-    }
-    result=document.getElementById("result").innerHTML="Right : "+correct+" Wrong : "+wrong
-}else{
-    prod();
-}
-
-}
-function prod(){
-    alert("account Locked");
-}
-</script>
 <div class="container">
     <img src= "Giraffe.jpg" id="Giraffe" alt="Giraffe" height="200" width="200" onclick="newImage()">
 </div>
@@ -82,11 +54,12 @@ var correct=0,wrong=0;
 
 function processPhrase (){
 
-    spValue = document.getElementById("secretphrase").value
+    spValue = document.getElementById("s").value
 
     phraseValue = document.getElementById("phrase").value
 
     resultDiv = document.getElementById("result")
+    if(wrong<3){
 
     if(spValue==phraseValue){
         alert("Access allowed");
@@ -98,6 +71,13 @@ function processPhrase (){
     }
 
     resultDiv.innerHTML="Correct count: "+correct+'<br>'+" Wrong count: "+wrong; 
+}else{
+    prodA();
+}
+
+}
+function prodA(){
+    alert("account Locked");
 }
 
     var usingImage=1;
